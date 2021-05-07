@@ -29,10 +29,10 @@ namespace DatabaseFirstSampleTwo
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_books = new System.Windows.Forms.DataGridView();
             this.tb_title = new System.Windows.Forms.TextBox();
             this.tb_Price = new System.Windows.Forms.TextBox();
-            this.tb_AuthorId = new System.Windows.Forms.TextBox();
+            this.tb_Language = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lbl_Title = new System.Windows.Forms.Label();
             this.lbl_Price = new System.Windows.Forms.Label();
@@ -40,18 +40,26 @@ namespace DatabaseFirstSampleTwo
             this.lbl_Language = new System.Windows.Forms.Label();
             this.tb_ISBN = new System.Windows.Forms.TextBox();
             this.lbl_ISBN = new System.Windows.Forms.Label();
-            this.btn_Save = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.button_AddBook = new System.Windows.Forms.Button();
+            this.button_saveUpdateBook = new System.Windows.Forms.Button();
+            this.checkBox_activeBook = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_books)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView_books
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 40);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 257);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView_books.AllowUserToAddRows = false;
+            this.dataGridView_books.AllowUserToDeleteRows = false;
+            this.dataGridView_books.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_books.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_books.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView_books.MultiSelect = false;
+            this.dataGridView_books.Name = "dataGridView_books";
+            this.dataGridView_books.ReadOnly = true;
+            this.dataGridView_books.RowTemplate.Height = 25;
+            this.dataGridView_books.Size = new System.Drawing.Size(776, 285);
+            this.dataGridView_books.TabIndex = 0;
+            this.dataGridView_books.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_books_CellContentClick);
             // 
             // tb_title
             // 
@@ -67,12 +75,12 @@ namespace DatabaseFirstSampleTwo
             this.tb_Price.Size = new System.Drawing.Size(144, 23);
             this.tb_Price.TabIndex = 2;
             // 
-            // tb_AuthorId
+            // tb_Language
             // 
-            this.tb_AuthorId.Location = new System.Drawing.Point(91, 374);
-            this.tb_AuthorId.Name = "tb_AuthorId";
-            this.tb_AuthorId.Size = new System.Drawing.Size(144, 23);
-            this.tb_AuthorId.TabIndex = 3;
+            this.tb_Language.Location = new System.Drawing.Point(91, 374);
+            this.tb_Language.Name = "tb_Language";
+            this.tb_Language.Size = new System.Drawing.Size(144, 23);
+            this.tb_Language.TabIndex = 3;
             // 
             // dateTimePicker1
             // 
@@ -137,22 +145,45 @@ namespace DatabaseFirstSampleTwo
             this.lbl_ISBN.TabIndex = 10;
             this.lbl_ISBN.Text = "ISBN:";
             // 
-            // btn_Save
+            // button_AddBook
             // 
-            this.btn_Save.Location = new System.Drawing.Point(254, 360);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(75, 23);
-            this.btn_Save.TabIndex = 11;
-            this.btn_Save.Text = "Save";
-            this.btn_Save.UseVisualStyleBackColor = true;
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            this.button_AddBook.Location = new System.Drawing.Point(254, 398);
+            this.button_AddBook.Name = "button_AddBook";
+            this.button_AddBook.Size = new System.Drawing.Size(75, 23);
+            this.button_AddBook.TabIndex = 11;
+            this.button_AddBook.Text = "Add new";
+            this.button_AddBook.UseVisualStyleBackColor = true;
+            this.button_AddBook.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // button_saveUpdateBook
+            // 
+            this.button_saveUpdateBook.Enabled = false;
+            this.button_saveUpdateBook.Location = new System.Drawing.Point(348, 398);
+            this.button_saveUpdateBook.Name = "button_saveUpdateBook";
+            this.button_saveUpdateBook.Size = new System.Drawing.Size(95, 23);
+            this.button_saveUpdateBook.TabIndex = 12;
+            this.button_saveUpdateBook.Text = "Save update";
+            this.button_saveUpdateBook.UseVisualStyleBackColor = true;
+            this.button_saveUpdateBook.Click += new System.EventHandler(this.button_saveUpdateBook_Click);
+            // 
+            // checkBox_activeBook
+            // 
+            this.checkBox_activeBook.AutoSize = true;
+            this.checkBox_activeBook.Location = new System.Drawing.Point(91, 432);
+            this.checkBox_activeBook.Name = "checkBox_activeBook";
+            this.checkBox_activeBook.Size = new System.Drawing.Size(59, 19);
+            this.checkBox_activeBook.TabIndex = 14;
+            this.checkBox_activeBook.Text = "Active";
+            this.checkBox_activeBook.UseVisualStyleBackColor = true;
             // 
             // ManageBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_Save);
+            this.Controls.Add(this.checkBox_activeBook);
+            this.Controls.Add(this.button_saveUpdateBook);
+            this.Controls.Add(this.button_AddBook);
             this.Controls.Add(this.lbl_ISBN);
             this.Controls.Add(this.tb_ISBN);
             this.Controls.Add(this.lbl_Language);
@@ -160,14 +191,14 @@ namespace DatabaseFirstSampleTwo
             this.Controls.Add(this.lbl_Price);
             this.Controls.Add(this.lbl_Title);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.tb_AuthorId);
+            this.Controls.Add(this.tb_Language);
             this.Controls.Add(this.tb_Price);
             this.Controls.Add(this.tb_title);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView_books);
             this.Name = "ManageBooks";
             this.Text = "Manage books";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_books)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,10 +206,10 @@ namespace DatabaseFirstSampleTwo
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_books;
         private System.Windows.Forms.TextBox tb_title;
         private System.Windows.Forms.TextBox tb_Price;
-        private System.Windows.Forms.TextBox tb_AuthorId;
+        private System.Windows.Forms.TextBox tb_Language;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lbl_Title;
         private System.Windows.Forms.Label lbl_Price;
@@ -186,7 +217,9 @@ namespace DatabaseFirstSampleTwo
         private System.Windows.Forms.Label lbl_Language;
         private System.Windows.Forms.TextBox tb_ISBN;
         private System.Windows.Forms.Label lbl_ISBN;
-        private System.Windows.Forms.Button btn_Save;
+        private System.Windows.Forms.Button button_AddBook;
+        private System.Windows.Forms.Button button_saveUpdateBook;
+        private System.Windows.Forms.CheckBox checkBox_activeBook;
     }
 }
 
