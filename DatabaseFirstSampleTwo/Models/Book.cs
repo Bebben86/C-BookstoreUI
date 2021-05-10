@@ -17,6 +17,7 @@ namespace DatabaseFirstSampleTwo.Models
         public string Language { get; set; }
         public decimal? Price { get; set; }
         public DateTime Published { get; set; }
+        public bool Active { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }

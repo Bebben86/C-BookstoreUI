@@ -43,6 +43,8 @@ namespace DatabaseFirstSampleTwo
             this.button_AddBook = new System.Windows.Forms.Button();
             this.button_saveUpdateBook = new System.Windows.Forms.Button();
             this.checkBox_activeBook = new System.Windows.Forms.CheckBox();
+            this.btn_Close = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_books)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +53,7 @@ namespace DatabaseFirstSampleTwo
             this.dataGridView_books.AllowUserToAddRows = false;
             this.dataGridView_books.AllowUserToDeleteRows = false;
             this.dataGridView_books.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_books.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_books.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_books.Location = new System.Drawing.Point(12, 12);
             this.dataGridView_books.MultiSelect = false;
@@ -58,7 +61,7 @@ namespace DatabaseFirstSampleTwo
             this.dataGridView_books.ReadOnly = true;
             this.dataGridView_books.RowTemplate.Height = 25;
             this.dataGridView_books.Size = new System.Drawing.Size(776, 285);
-            this.dataGridView_books.TabIndex = 0;
+            this.dataGridView_books.TabIndex = 9;
             this.dataGridView_books.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_books_CellContentClick);
             // 
             // tb_title
@@ -66,14 +69,14 @@ namespace DatabaseFirstSampleTwo
             this.tb_title.Location = new System.Drawing.Point(91, 345);
             this.tb_title.Name = "tb_title";
             this.tb_title.Size = new System.Drawing.Size(144, 23);
-            this.tb_title.TabIndex = 1;
+            this.tb_title.TabIndex = 2;
             // 
             // tb_Price
             // 
             this.tb_Price.Location = new System.Drawing.Point(91, 403);
             this.tb_Price.Name = "tb_Price";
             this.tb_Price.Size = new System.Drawing.Size(144, 23);
-            this.tb_Price.TabIndex = 2;
+            this.tb_Price.TabIndex = 4;
             // 
             // tb_Language
             // 
@@ -87,7 +90,7 @@ namespace DatabaseFirstSampleTwo
             this.dateTimePicker1.Location = new System.Drawing.Point(335, 316);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.TabIndex = 6;
             // 
             // lbl_Title
             // 
@@ -133,7 +136,8 @@ namespace DatabaseFirstSampleTwo
             this.tb_ISBN.Name = "tb_ISBN";
             this.tb_ISBN.PlaceholderText = "Numbers only";
             this.tb_ISBN.Size = new System.Drawing.Size(144, 23);
-            this.tb_ISBN.TabIndex = 9;
+            this.tb_ISBN.TabIndex = 1;
+            this.tb_ISBN.TabStop = false;
             this.tb_ISBN.TextChanged += new System.EventHandler(this.tb_ISBN_TextChanged);
             // 
             // lbl_ISBN
@@ -147,10 +151,10 @@ namespace DatabaseFirstSampleTwo
             // 
             // button_AddBook
             // 
-            this.button_AddBook.Location = new System.Drawing.Point(254, 398);
+            this.button_AddBook.Location = new System.Drawing.Point(254, 402);
             this.button_AddBook.Name = "button_AddBook";
-            this.button_AddBook.Size = new System.Drawing.Size(75, 23);
-            this.button_AddBook.TabIndex = 11;
+            this.button_AddBook.Size = new System.Drawing.Size(95, 23);
+            this.button_AddBook.TabIndex = 7;
             this.button_AddBook.Text = "Add new";
             this.button_AddBook.UseVisualStyleBackColor = true;
             this.button_AddBook.Click += new System.EventHandler(this.btn_Save_Click);
@@ -158,10 +162,10 @@ namespace DatabaseFirstSampleTwo
             // button_saveUpdateBook
             // 
             this.button_saveUpdateBook.Enabled = false;
-            this.button_saveUpdateBook.Location = new System.Drawing.Point(348, 398);
+            this.button_saveUpdateBook.Location = new System.Drawing.Point(374, 402);
             this.button_saveUpdateBook.Name = "button_saveUpdateBook";
             this.button_saveUpdateBook.Size = new System.Drawing.Size(95, 23);
-            this.button_saveUpdateBook.TabIndex = 12;
+            this.button_saveUpdateBook.TabIndex = 8;
             this.button_saveUpdateBook.Text = "Save update";
             this.button_saveUpdateBook.UseVisualStyleBackColor = true;
             this.button_saveUpdateBook.Click += new System.EventHandler(this.button_saveUpdateBook_Click);
@@ -172,15 +176,36 @@ namespace DatabaseFirstSampleTwo
             this.checkBox_activeBook.Location = new System.Drawing.Point(91, 432);
             this.checkBox_activeBook.Name = "checkBox_activeBook";
             this.checkBox_activeBook.Size = new System.Drawing.Size(59, 19);
-            this.checkBox_activeBook.TabIndex = 14;
+            this.checkBox_activeBook.TabIndex = 5;
             this.checkBox_activeBook.Text = "Active";
             this.checkBox_activeBook.UseVisualStyleBackColor = true;
+            // 
+            // btn_Close
+            // 
+            this.btn_Close.Location = new System.Drawing.Point(487, 403);
+            this.btn_Close.Name = "btn_Close";
+            this.btn_Close.Size = new System.Drawing.Size(95, 23);
+            this.btn_Close.TabIndex = 11;
+            this.btn_Close.Text = "Close";
+            this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(254, 369);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Choose Author";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // ManageBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 463);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.checkBox_activeBook);
             this.Controls.Add(this.button_saveUpdateBook);
             this.Controls.Add(this.button_AddBook);
@@ -195,6 +220,7 @@ namespace DatabaseFirstSampleTwo
             this.Controls.Add(this.tb_Price);
             this.Controls.Add(this.tb_title);
             this.Controls.Add(this.dataGridView_books);
+            this.KeyPreview = true;
             this.Name = "ManageBooks";
             this.Text = "Manage books";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -220,6 +246,8 @@ namespace DatabaseFirstSampleTwo
         private System.Windows.Forms.Button button_AddBook;
         private System.Windows.Forms.Button button_saveUpdateBook;
         private System.Windows.Forms.CheckBox checkBox_activeBook;
+        private System.Windows.Forms.Button btn_Close;
+        private System.Windows.Forms.Button button1;
     }
 }
 

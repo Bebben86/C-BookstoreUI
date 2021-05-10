@@ -34,11 +34,13 @@ namespace DatabaseFirstSampleTwo
             this.btn_connectAuthorsAndBooks = new System.Windows.Forms.Button();
             this.btn_stockBalances = new System.Windows.Forms.Button();
             this.btn_ = new System.Windows.Forms.Button();
+            this.GridView_base = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.GridView_base)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_manageBooks
             // 
-            this.btn_manageBooks.Location = new System.Drawing.Point(61, 63);
+            this.btn_manageBooks.Location = new System.Drawing.Point(12, 12);
             this.btn_manageBooks.Name = "btn_manageBooks";
             this.btn_manageBooks.Size = new System.Drawing.Size(124, 45);
             this.btn_manageBooks.TabIndex = 0;
@@ -48,16 +50,17 @@ namespace DatabaseFirstSampleTwo
             // 
             // btn_manageAuthors
             // 
-            this.btn_manageAuthors.Location = new System.Drawing.Point(61, 123);
+            this.btn_manageAuthors.Location = new System.Drawing.Point(12, 72);
             this.btn_manageAuthors.Name = "btn_manageAuthors";
             this.btn_manageAuthors.Size = new System.Drawing.Size(124, 45);
             this.btn_manageAuthors.TabIndex = 1;
             this.btn_manageAuthors.Text = "Manage Authors";
             this.btn_manageAuthors.UseVisualStyleBackColor = true;
+            this.btn_manageAuthors.Click += new System.EventHandler(this.btn_manageAuthors_Click);
             // 
             // btn_connectAuthorsAndBooks
             // 
-            this.btn_connectAuthorsAndBooks.Location = new System.Drawing.Point(61, 184);
+            this.btn_connectAuthorsAndBooks.Location = new System.Drawing.Point(12, 135);
             this.btn_connectAuthorsAndBooks.Name = "btn_connectAuthorsAndBooks";
             this.btn_connectAuthorsAndBooks.Size = new System.Drawing.Size(124, 45);
             this.btn_connectAuthorsAndBooks.TabIndex = 2;
@@ -66,7 +69,7 @@ namespace DatabaseFirstSampleTwo
             // 
             // btn_stockBalances
             // 
-            this.btn_stockBalances.Location = new System.Drawing.Point(61, 244);
+            this.btn_stockBalances.Location = new System.Drawing.Point(12, 199);
             this.btn_stockBalances.Name = "btn_stockBalances";
             this.btn_stockBalances.Size = new System.Drawing.Size(124, 45);
             this.btn_stockBalances.TabIndex = 3;
@@ -75,25 +78,42 @@ namespace DatabaseFirstSampleTwo
             // 
             // btn_
             // 
-            this.btn_.Location = new System.Drawing.Point(61, 371);
+            this.btn_.Location = new System.Drawing.Point(12, 393);
             this.btn_.Name = "btn_";
             this.btn_.Size = new System.Drawing.Size(124, 45);
             this.btn_.TabIndex = 4;
-            this.btn_.Text = "Stock balances";
+            this.btn_.Text = "Quit program";
             this.btn_.UseVisualStyleBackColor = true;
+            this.btn_.Click += new System.EventHandler(this.btn__Click);
+            // 
+            // GridView_base
+            // 
+            this.GridView_base.AllowUserToAddRows = false;
+            this.GridView_base.AllowUserToDeleteRows = false;
+            this.GridView_base.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.GridView_base.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridView_base.Location = new System.Drawing.Point(154, 12);
+            this.GridView_base.Name = "GridView_base";
+            this.GridView_base.ReadOnly = true;
+            this.GridView_base.RowTemplate.Height = 25;
+            this.GridView_base.Size = new System.Drawing.Size(634, 426);
+            this.GridView_base.TabIndex = 5;
             // 
             // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GridView_base);
             this.Controls.Add(this.btn_);
             this.Controls.Add(this.btn_stockBalances);
             this.Controls.Add(this.btn_connectAuthorsAndBooks);
             this.Controls.Add(this.btn_manageAuthors);
             this.Controls.Add(this.btn_manageBooks);
             this.Name = "BaseForm";
-            this.Text = "Stock balances";
+            this.Text = "Stock Balances";
+            this.Load += new System.EventHandler(this.BaseForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.GridView_base)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -105,5 +125,6 @@ namespace DatabaseFirstSampleTwo
         private System.Windows.Forms.Button btn_connectAuthorsAndBooks;
         private System.Windows.Forms.Button btn_stockBalances;
         private System.Windows.Forms.Button btn_;
+        private System.Windows.Forms.DataGridView GridView_base;
     }
 }
