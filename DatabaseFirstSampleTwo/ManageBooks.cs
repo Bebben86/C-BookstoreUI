@@ -25,36 +25,11 @@ namespace DatabaseFirstSampleTwo
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            //var db = new LAM_Lab2Context();
+        {           
             using (var db = new LAM_Lab2Context())
             {
-
                 //Select everything in the Books-table.
                 var booksData = from b in db.Books select b;
-
-                //View a view named RegularCustomers.
-                //var booksData = from rc in db.RegularCustomers select rc;
-
-                //Join 3 tables and pick the information you want.
-                //var booksData = from Book in db.Books
-                //                 join AuthorsBook in db.AuthorsBooks
-                //                 on Book.Isbn13 equals AuthorsBook.BooksIsbn13
-                //                 join Author in db.Authors
-                //                 on AuthorsBook.AuthorsId equals Author.Id
-                //                    where Book.Active == true
-                //                 select new
-                //                 {
-                //                     Book.Title,
-                //                     Book.Isbn13,
-                //                     Book.Language,
-                //                     Book.Price,
-                //                     Book.Active,
-                //                     Author.AFirstName,
-                //                     Author.ALastName
-                //                 };
-
-
 
                 if (booksData != null)
                 {
@@ -67,11 +42,8 @@ namespace DatabaseFirstSampleTwo
                         MessageBox.Show("No records found", "No data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         dataGridView_books.DataSource = null;
                     }
-                }
-                
-
+                } 
             }
-
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
@@ -81,7 +53,6 @@ namespace DatabaseFirstSampleTwo
             {
                 try
                 {
-
                     var book = new Book
                     {
                         Isbn13 = tb_ISBN.Text,
@@ -101,13 +72,16 @@ namespace DatabaseFirstSampleTwo
                     MessageBox.Show($"{ee}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     throw;
                 }
-
             }
         }
 
         private void tb_ISBN_TextChanged(object sender, EventArgs e)
         {
-
+            if (System.Text.RegularExpressions.Regex.IsMatch(tb_ISBN.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter numbers only.");
+                tb_ISBN.Text = tb_ISBN.Text.Remove(tb_ISBN.Text.Length - 1);
+            }
         }
 
         private void dataGridView_books_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -122,8 +96,7 @@ namespace DatabaseFirstSampleTwo
                 tb_Price.Text = book.Price.ToString();
                 tb_Language.Text = book.Language;
                 checkBox_activeBook.Checked = book.Active;
-
-                
+                                
                 this.button_saveUpdateBook.Enabled = true;
             }   
         }
@@ -152,6 +125,11 @@ namespace DatabaseFirstSampleTwo
                     MessageBox.Show($"{ee}");
                 }
             }
+        }
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
