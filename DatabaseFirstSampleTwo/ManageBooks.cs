@@ -53,19 +53,35 @@ namespace DatabaseFirstSampleTwo
             {
                 try
                 {
-                    var book = new Book
+                    //Letar efter befintligt ISBN dataGridView och avbryter om det hittas när användaren 
+                    //försöker lägga till en bok.
+                    string searchISBN = tb_ISBN.Text;
+                    int index = -1;
+                    index = (dataGridView_books.Rows.Cast<DataGridViewRow>()
+                        .Where(r => r.Cells[0].Value.Equals(searchISBN))
+                        .Select(r => r.Index)).FirstOrDefault();
+                    if (index > 0)
                     {
-                        Isbn13 = tb_ISBN.Text,
-                        Title = tb_title.Text,
-                        Price = decimal.Parse(tb_Price.Text),
-                        Published = dateTimePicker1.Value,
-                        Language = tb_Language.Text
-                    };
+                        MessageBox.Show("Book with that ISBN is already in the database.", "Attention",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        var book = new Book
+                        {
+                            Isbn13 = tb_ISBN.Text,
+                            Title = tb_title.Text,
+                            Price = decimal.Parse(tb_Price.Text),
+                            Published = dateTimePicker1.Value,
+                            Language = tb_Language.Text
+                        };
 
-                    db.Books.Add(book);
-                    db.SaveChanges();
-                    dataGridView_books.DataSource = db.Books.ToList();
-                    MessageBox.Show("Book added successfully", "New book", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        db.Books.Add(book);
+                        db.SaveChanges();
+                        dataGridView_books.DataSource = db.Books.ToList();
+
+                        MessageBox.Show("Book added successfully", "New book", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch (Exception ee)
                 {
@@ -137,6 +153,16 @@ namespace DatabaseFirstSampleTwo
         {
             var formPopup2 = new ConnectAuthorBooks();
             formPopup2.Show(this);
+        }
+
+        private void button_Clear_Click(object sender, EventArgs e)
+        {
+            tb_ISBN.Clear();
+            tb_title.Clear();
+            tb_Price.Clear();
+            tb_Language.Clear();
+            checkBox_activeBook.Checked = false;
+            
         }
     }
 }

@@ -40,6 +40,7 @@ namespace Lab3LinneaOchAndreas
             this.label_Birthdate = new System.Windows.Forms.Label();
             this.dataGridView_Authors = new System.Windows.Forms.DataGridView();
             this.tb_Birthdate = new System.Windows.Forms.DateTimePicker();
+            this.button_clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Authors)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +67,7 @@ namespace Lab3LinneaOchAndreas
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(483, 387);
+            this.btn_Close.Location = new System.Drawing.Point(588, 387);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(88, 32);
             this.btn_Close.TabIndex = 7;
@@ -146,11 +147,22 @@ namespace Lab3LinneaOchAndreas
             this.tb_Birthdate.Size = new System.Drawing.Size(168, 23);
             this.tb_Birthdate.TabIndex = 3;
             // 
+            // button_clear
+            // 
+            this.button_clear.Location = new System.Drawing.Point(485, 387);
+            this.button_clear.Name = "button_clear";
+            this.button_clear.Size = new System.Drawing.Size(88, 32);
+            this.button_clear.TabIndex = 13;
+            this.button_clear.Text = "Clear";
+            this.button_clear.UseVisualStyleBackColor = true;
+            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
+            // 
             // ManageAuthors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 455);
+            this.Controls.Add(this.button_clear);
             this.Controls.Add(this.tb_Birthdate);
             this.Controls.Add(this.dataGridView_Authors);
             this.Controls.Add(this.label_Birthdate);
@@ -184,5 +196,6 @@ namespace Lab3LinneaOchAndreas
         private System.Windows.Forms.Label label_Birthdate;
         private System.Windows.Forms.DataGridView dataGridView_Authors;
         private System.Windows.Forms.DateTimePicker tb_Birthdate;
+        private System.Windows.Forms.Button button_clear;
     }
 }
