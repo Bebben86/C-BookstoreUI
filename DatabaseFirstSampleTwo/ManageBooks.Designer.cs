@@ -45,6 +45,7 @@ namespace DatabaseFirstSampleTwo
             this.checkBox_activeBook = new System.Windows.Forms.CheckBox();
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_ChooseAuthor = new System.Windows.Forms.Button();
+            this.button_Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_books)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,11 +200,23 @@ namespace DatabaseFirstSampleTwo
             this.btn_ChooseAuthor.UseVisualStyleBackColor = true;
             this.btn_ChooseAuthor.Click += new System.EventHandler(this.btn_ChooseAuthor_Click);
             // 
+            // button_Clear
+            // 
+            this.button_Clear.Enabled = true;
+            this.button_Clear.Location = new System.Drawing.Point(374, 369);
+            this.button_Clear.Name = "button_Clear";
+            this.button_Clear.Size = new System.Drawing.Size(95, 23);
+            this.button_Clear.TabIndex = 13;
+            this.button_Clear.Text = "Clear";
+            this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
+            // 
             // ManageBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 463);
+            this.Controls.Add(this.button_Clear);
             this.Controls.Add(this.btn_ChooseAuthor);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.checkBox_activeBook);
@@ -248,6 +261,7 @@ namespace DatabaseFirstSampleTwo
         private System.Windows.Forms.CheckBox checkBox_activeBook;
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.Button btn_ChooseAuthor;
+        private System.Windows.Forms.Button button_Clear;
     }
 }
 
