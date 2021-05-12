@@ -23,7 +23,15 @@ namespace DatabaseFirstSampleTwo.Models
             : base(options)
         {
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //if (!optionsBuilder.IsConfigured)             //TODO Classes kod har inte if-sats
+            //{
+            //    optionsBuilder.UseSqlServer(connectionString);
+            //}
 
+            optionsBuilder.UseSqlServer(connectionString);
+        }
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; }
@@ -37,14 +45,7 @@ namespace DatabaseFirstSampleTwo.Models
         public virtual DbSet<StockBalance> StockBalances { get; set; }
         public virtual DbSet<TitlesPerAuthor> TitlesPerAuthors { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
 
-                optionsBuilder.UseSqlServer(connectionString);
-            }
-        }
 
 
 

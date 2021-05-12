@@ -33,13 +33,14 @@ namespace Lab3LinneaOchAndreas
                     {
                         AFirstName = tb_Firstname.Text,
                         ALastName = tb_Lastname.Text,
-                        BirthDate = DateTime.Parse(tb_Birthdate.Text)
+                        BirthDate = DateTime.Parse(tb_Birthdate.Text),
+                        Active = checkbox_Active.Checked
                     };
-                    db.Authors.Add(author);
+                    db.Authors.Update(author);
                     db.SaveChanges();
                     dataGridView_Authors.DataSource = db.Authors.ToList();
 
-                    MessageBox.Show("Author added successfully.", "New Author", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Author updated successfully.", "Updated Author", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ee)
                 {
@@ -59,7 +60,8 @@ namespace Lab3LinneaOchAndreas
                     {
                         AFirstName = tb_Firstname.Text,
                         ALastName = tb_Lastname.Text,
-                        BirthDate = DateTime.Parse(tb_Birthdate.Text)
+                        BirthDate = DateTime.Parse(tb_Birthdate.Text),
+                        Active = checkbox_Active.Checked
                     };
                     db.Authors.Add(author);
                     db.SaveChanges();
@@ -80,13 +82,17 @@ namespace Lab3LinneaOchAndreas
         {
             using (var db = new LAM_Lab2Context())
             {
-                var id = dataGridView_Authors.Rows[e.RowIndex].Cells[0].Value.ToString();
-                var author = db.Authors.Find(id);
-
+                string id = dataGridView_Authors.Rows[e.RowIndex].Cells[0].Value.ToString();
+                int idInt = int.Parse(id);
+                var author = db.Authors.Find(idInt);
+                                
                 tb_Firstname.Text = author.AFirstName;
-                tb_Lastname.Text = author.ALastName;                
+                tb_Lastname.Text = author.ALastName;
                 tb_Birthdate.Value = author.BirthDate;
                 checkbox_Active.Checked = author.Active;
+
+                this.btn_Save.Enabled = true;
+                dataGridView_Authors.DataSource = db.Authors.ToList();
             }
         }
 

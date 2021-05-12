@@ -44,7 +44,7 @@ namespace DatabaseFirstSampleTwo
             this.button_saveUpdateBook = new System.Windows.Forms.Button();
             this.checkBox_activeBook = new System.Windows.Forms.CheckBox();
             this.btn_Close = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_ChooseAuthor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_books)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +58,6 @@ namespace DatabaseFirstSampleTwo
             this.dataGridView_books.Location = new System.Drawing.Point(12, 12);
             this.dataGridView_books.MultiSelect = false;
             this.dataGridView_books.Name = "dataGridView_books";
-            this.dataGridView_books.ReadOnly = true;
             this.dataGridView_books.RowTemplate.Height = 25;
             this.dataGridView_books.Size = new System.Drawing.Size(776, 285);
             this.dataGridView_books.TabIndex = 9;
@@ -190,21 +189,22 @@ namespace DatabaseFirstSampleTwo
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
             // 
-            // button1
+            // btn_ChooseAuthor
             // 
-            this.button1.Location = new System.Drawing.Point(254, 369);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Choose Author";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_ChooseAuthor.Location = new System.Drawing.Point(254, 369);
+            this.btn_ChooseAuthor.Name = "btn_ChooseAuthor";
+            this.btn_ChooseAuthor.Size = new System.Drawing.Size(95, 23);
+            this.btn_ChooseAuthor.TabIndex = 12;
+            this.btn_ChooseAuthor.Text = "Choose Author";
+            this.btn_ChooseAuthor.UseVisualStyleBackColor = true;
+            this.btn_ChooseAuthor.Click += new System.EventHandler(this.btn_ChooseAuthor_Click);
             // 
             // ManageBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 463);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_ChooseAuthor);
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.checkBox_activeBook);
             this.Controls.Add(this.button_saveUpdateBook);
@@ -247,7 +247,7 @@ namespace DatabaseFirstSampleTwo
         private System.Windows.Forms.Button button_saveUpdateBook;
         private System.Windows.Forms.CheckBox checkBox_activeBook;
         private System.Windows.Forms.Button btn_Close;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_ChooseAuthor;
     }
 }
 

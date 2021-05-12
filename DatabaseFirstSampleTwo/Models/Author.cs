@@ -11,12 +11,13 @@ namespace DatabaseFirstSampleTwo.Models
     {
         private string _firstName;
         private string _lastName;
+        public int Id { get; set; }
         [NotMapped]
         public string FullName
         {
             get { return _firstName + " " + _lastName; }
         }
-        public int Id { get; set; }
+        
         public string AFirstName
         {
             get { return _firstName; }

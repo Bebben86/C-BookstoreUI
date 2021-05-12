@@ -66,6 +66,7 @@ namespace DatabaseFirstSampleTwo
             this.btn_connectAuthorsAndBooks.TabIndex = 2;
             this.btn_connectAuthorsAndBooks.Text = "Connect authors and books";
             this.btn_connectAuthorsAndBooks.UseVisualStyleBackColor = true;
+            this.btn_connectAuthorsAndBooks.Click += new System.EventHandler(this.btn_connectAuthorsAndBooks_Click);
             // 
             // btn_stockBalances
             // 
@@ -75,6 +76,7 @@ namespace DatabaseFirstSampleTwo
             this.btn_stockBalances.TabIndex = 3;
             this.btn_stockBalances.Text = "Stock balances";
             this.btn_stockBalances.UseVisualStyleBackColor = true;
+            this.btn_stockBalances.Click += new System.EventHandler(this.btn_stockBalances_Click);
             // 
             // btn_
             // 
@@ -111,7 +113,7 @@ namespace DatabaseFirstSampleTwo
             this.Controls.Add(this.btn_manageAuthors);
             this.Controls.Add(this.btn_manageBooks);
             this.Name = "BaseForm";
-            this.Text = "Stock Balances";
+            this.Text = "The Bookstores Lab3 Andreas&Linnéa";
             this.Load += new System.EventHandler(this.BaseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GridView_base)).EndInit();
             this.ResumeLayout(false);

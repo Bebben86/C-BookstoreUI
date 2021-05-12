@@ -1,4 +1,5 @@
 ﻿using DatabaseFirstSampleTwo.Models;
+using Lab3LinneaOchAndreas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,8 +48,7 @@ namespace DatabaseFirstSampleTwo
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
-        {
-            
+        {            
             using (var db = new LAM_Lab2Context())
             {
                 try
@@ -96,7 +96,7 @@ namespace DatabaseFirstSampleTwo
                 tb_Price.Text = book.Price.ToString();
                 tb_Language.Text = book.Language;
                 checkBox_activeBook.Checked = book.Active;
-                                
+
                 this.button_saveUpdateBook.Enabled = true;
             }   
         }
@@ -115,6 +115,7 @@ namespace DatabaseFirstSampleTwo
                     book.Language = tb_Language.Text;
                     book.Active = checkBox_activeBook.Checked;
 
+                    db.Books.Update(book);
                     db.SaveChanges();
                     dataGridView_books.DataSource = db.Books.ToList();
 
@@ -130,6 +131,12 @@ namespace DatabaseFirstSampleTwo
         private void btn_Close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_ChooseAuthor_Click(object sender, EventArgs e)
+        {
+            var formPopup2 = new ConnectAuthorBooks();
+            formPopup2.Show(this);
         }
     }
 }

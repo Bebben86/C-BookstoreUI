@@ -31,18 +31,9 @@ namespace DatabaseFirstSampleTwo
         }
 
         private void BaseForm_Load(object sender, EventArgs e)
-        {
-            //var db = new LAM_Lab2Context();
+        {   
             using (var db = new LAM_Lab2Context())
-            {
-                //Select everything in the Books-table.
-                //var booksData = from b in db.Books select b.Title, b.;
-
-                //View a view named RegularCustomers.
-                //var booksData1 = from rc in db.RegularCustomers select rc;
-
-                //Join 3 tables and pick the information you want.
-
+            {       
                 var booksData = from book in db.Books
                                 join AuthorsBook in db.AuthorsBooks
                                 on book.Isbn13 equals AuthorsBook.BooksIsbn13
@@ -64,12 +55,6 @@ namespace DatabaseFirstSampleTwo
                         GridView_base.Columns[0].HeaderText = "Firstname";
                         GridView_base.Columns[1].HeaderText = "Lastname";
                         GridView_base.Columns[2].HeaderText = "Title of the book";
-
-                        //foreach (DataGridViewRow item in GridView_base.Rows)
-                        //{
-                        //    GridView_base.Rows[1].Cells[1].Value = item["A_FirstName"] + " " + item["A_LastName"];
-
-                        //}
                     }
                     else
                     {
@@ -83,6 +68,18 @@ namespace DatabaseFirstSampleTwo
         private void btn__Click(object sender, EventArgs e)
         {
             this.Close();
-        }        
+        }
+
+        private void btn_connectAuthorsAndBooks_Click(object sender, EventArgs e)
+        {
+            var formPopup3 = new ConnectAuthorBooks();
+            formPopup3.Show(this);
+        }
+
+        private void btn_stockBalances_Click(object sender, EventArgs e)
+        {
+            var formPopup4 = new Stockbalance();
+            formPopup4.Show(this);
+        }
     }
 }
