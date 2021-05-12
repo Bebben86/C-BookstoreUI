@@ -72,7 +72,7 @@ namespace Lab3LinneaOchAndreas
                 catch (Exception ee)
                 {
                     MessageBox.Show($"{ee}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    throw; 
                 }
             }
 
