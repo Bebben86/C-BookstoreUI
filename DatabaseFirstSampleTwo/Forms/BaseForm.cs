@@ -2,18 +2,15 @@
 using Lab3LinneaOchAndreas;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DatabaseFirstSampleTwo
 {
     public partial class BaseForm : Form
     {
+
         public BaseForm()
         {
             InitializeComponent();
@@ -31,9 +28,19 @@ namespace DatabaseFirstSampleTwo
         }
 
         private void BaseForm_Load(object sender, EventArgs e)
-        {   
+        {
             using (var db = new LAM_Lab2Context())
-            {       
+            {
+                if (!db.Database.CanConnect())
+                {
+                    MessageBox.Show(
+                        "Could not connect to the database.",
+                        "Could not connect",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    return;
+                }
+
                 var booksData = from book in db.Books
                                 join AuthorsBook in db.AuthorsBooks
                                 on book.Isbn13 equals AuthorsBook.BooksIsbn13

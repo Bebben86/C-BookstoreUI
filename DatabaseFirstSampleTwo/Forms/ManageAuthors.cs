@@ -30,7 +30,6 @@ namespace Lab3LinneaOchAndreas
             {
                 try
                 {
-
                     var author = new Author
                     {
                         AFirstName = tb_Firstname.Text,

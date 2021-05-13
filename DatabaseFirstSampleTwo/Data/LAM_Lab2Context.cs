@@ -25,13 +25,13 @@ namespace DatabaseFirstSampleTwo.Models
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //if (!optionsBuilder.IsConfigured)             //TODO Classes kod har inte if-sats
-            //{
-            //    optionsBuilder.UseSqlServer(connectionString);
-            //}
-
+            if (!optionsBuilder.IsConfigured)             //TODO Classes kod har inte if-sats
+            {
+                optionsBuilder.UseSqlServer(connectionString);
+            }
             optionsBuilder.UseSqlServer(connectionString);
         }
+
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<AuthorsBook> AuthorsBooks { get; set; }

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace Lab3LinneaOchAndreas
 {
@@ -32,12 +33,14 @@ namespace Lab3LinneaOchAndreas
                                 on stockbalance.BookStoresId equals store.Id
                                 where book.Active == true
                                 select new
+
+                                //Här är bara det som ska synas.
                                 {
                                     store.Name,
                                     book.Title,
                                     stockbalance.NumberOfItems
                                 };
-
+                
                 dataGridView_storeData.DataSource = storedata.ToList();
 
                 //Shows the different bookstores
@@ -56,8 +59,6 @@ namespace Lab3LinneaOchAndreas
                 comboBox_book.DataSource = dt; // setting the datasource property of combobox
                 comboBox_book.DisplayMember = "Title"; // Display Member which will display on screen
                 comboBox_book.ValueMember = "ISBN13";
-
-
             }
         }
 
@@ -74,23 +75,14 @@ namespace Lab3LinneaOchAndreas
         private void dataGridView_storeData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             using (var db = new LAM_Lab2Context())
-            {
-                string id = dataGridView_storeData.Rows[e.RowIndex].Cells[0].Value.ToString();
+            {    
+                var id = dataGridView_storeData.Rows[e.RowIndex].Cells[0].Value.ToString();
+
                 var book = db.StockBalances.Find(id);
 
                 tb_nrOfItems.Text = book.NumberOfItems.ToString();
                 dataGridView_storeData.Update();
-                //comboBox_bookstore = Book.Isbn13;
-
-                //tb_Firstname.Text = author.AFirstName;
-                //tb_Lastname.Text = author.ALastName;
-                //tb_Birthdate.Value = author.BirthDate;
-                //checkbox_Active.Checked = author.Active;
-
-                //this.btn_Save.Enabled = true;
-                //dataGridView_storeData.DataSource = db.Authors.ToList();
-
-
+                
             }
         }
 
