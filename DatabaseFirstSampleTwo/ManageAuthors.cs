@@ -30,20 +30,28 @@ namespace Lab3LinneaOchAndreas
             {
                 try
                 {
+                    var author = db.Authors.Find(authId);
 
-                    var author = new Author
+                    author.AFirstName = tb_Firstname.Text;
+                    author.ALastName = tb_Lastname.Text;
+                    author.BirthDate = DateTime.Parse(tb_Birthdate.Text);
+                    author.Active = checkbox_Active.Checked;
+
+                    if (string.IsNullOrEmpty(tb_Firstname.Text) || string.IsNullOrWhiteSpace(tb_Lastname.Text))
                     {
-                        AFirstName = tb_Firstname.Text,
-                        ALastName = tb_Lastname.Text,
-                        BirthDate = DateTime.Parse(tb_Birthdate.Text),
-                        Active = checkbox_Active.Checked
-                    };
-                    db.Authors.Update(author);
-                    db.SaveChanges();
-                    dataGridView_Authors.DataSource = db.Authors.ToList();
+                        MessageBox.Show("First- or lastname can't be empty.", "You made an oopsie!",
+                                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        db.Authors.Update(author);
+                        db.SaveChanges();
 
-                    MessageBox.Show("Author updated successfully.", "Updated Author",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dataGridView_Authors.DataSource = db.Authors.ToList();
+
+                        MessageBox.Show("Author updated successfully.", "Updated Author",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 catch (Exception ee)
                 {
@@ -79,12 +87,23 @@ namespace Lab3LinneaOchAndreas
                             BirthDate = DateTime.Parse(tb_Birthdate.Text),
                             Active = checkbox_Active.Checked
                         };
-                        db.Authors.Add(author);
-                        db.SaveChanges();
-                        dataGridView_Authors.DataSource = db.Authors.ToList();
+
+                        if (string.IsNullOrWhiteSpace(tb_Firstname.Text) || string.IsNullOrWhiteSpace(tb_Lastname.Text))
+                        {
+                            MessageBox.Show("First- or lastname can't be empty.", "You made an oopsie!",
+                                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+
+                            db.Authors.Add(author);
+                            db.SaveChanges();
+                            dataGridView_Authors.DataSource = db.Authors.ToList();
 
 
-                        MessageBox.Show("Author added successfully.", "New Author", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Author added successfully.", "New Author"
+                                , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
                 catch (Exception ee)
@@ -110,6 +129,7 @@ namespace Lab3LinneaOchAndreas
                 tb_Lastname.Text = author.ALastName;
                 tb_Birthdate.Value = author.BirthDate;
                 checkbox_Active.Checked = author.Active;
+                
 
                 this.btn_Save.Enabled = true;
                 
@@ -129,6 +149,8 @@ namespace Lab3LinneaOchAndreas
             tb_Firstname.Clear();
             tb_Lastname.Clear();
             checkbox_Active.Checked = false;
+            authId = 0;
+            this.btn_Save.Enabled = false;
         }
     }
 }
