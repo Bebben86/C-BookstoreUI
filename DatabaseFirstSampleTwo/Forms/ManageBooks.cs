@@ -1,13 +1,8 @@
 ﻿using DatabaseFirstSampleTwo.Models;
 using Lab3LinneaOchAndreas;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DatabaseFirstSampleTwo
@@ -20,16 +15,13 @@ namespace DatabaseFirstSampleTwo
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {           
             using (var db = new LAM_Lab2Context())
             {
-                //Select everything in the Books-table.
+                //Show everything in the Books-table in the dataGridView.
+                //If empty, show message.
                 var booksData = from b in db.Books select b;
 
                 if (booksData != null)
@@ -37,6 +29,7 @@ namespace DatabaseFirstSampleTwo
                     if (booksData.Count() > 0)
                     {
                         dataGridView_books.DataSource = booksData.ToList();
+                        this.dataGridView_books.Columns["OrderDetails"].Visible = false;
                     }
                     else
                     {
@@ -53,8 +46,8 @@ namespace DatabaseFirstSampleTwo
             {
                 try
                 {
-                    //Letar efter befintligt ISBN dataGridView och avbryter om det hittas när användaren 
-                    //försöker lägga till en bok.
+                    //Checks if ISBS is already in the dataGridView and aborts the user's action if match found.
+
                     string searchISBN = tb_ISBN.Text;
                     int index = -1;
                     index = (dataGridView_books.Rows.Cast<DataGridViewRow>()
@@ -67,6 +60,7 @@ namespace DatabaseFirstSampleTwo
                     }
                     else
                     {
+                        //If no matching ISBN is found, adds new book to the database.
                         var book = new Book
                         {
                             Isbn13 = tb_ISBN.Text,
@@ -87,13 +81,13 @@ namespace DatabaseFirstSampleTwo
                 catch (Exception ee)
                 {
                     MessageBox.Show($"{ee}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
                 }
             }
         }
 
         private void tb_ISBN_TextChanged(object sender, EventArgs e)
         {
+            //Data validation for numbers only.
             if (System.Text.RegularExpressions.Regex.IsMatch(tb_ISBN.Text, "[^0-9]"))
             {
                 MessageBox.Show("Please enter numbers only.");
@@ -105,6 +99,8 @@ namespace DatabaseFirstSampleTwo
         {
             using (var db = new LAM_Lab2Context())
             {
+                //Updates the textboxes and the other controls with the values from dataGridView,
+                //and enables the Update-button.
                 var id = dataGridView_books.Rows[e.RowIndex].Cells[0].Value.ToString();
                 var book = db.Books.Find(id);
 
@@ -124,6 +120,7 @@ namespace DatabaseFirstSampleTwo
             {
                 try
                 {
+                    //Updates the book in database with the changes the user made.
                     var book = db.Books.Find(tb_ISBN.Text);
 
                     book.Isbn13 = tb_ISBN.Text;
@@ -152,8 +149,8 @@ namespace DatabaseFirstSampleTwo
 
         private void btn_ChooseAuthor_Click(object sender, EventArgs e)
         {
-            var formPopup2 = new ConnectAuthorBooks();
-            formPopup2.Show(this);
+            var formPopup = new ConnectAuthorBooks();
+            formPopup.Show(this);
         }
 
         private void button_Clear_Click(object sender, EventArgs e)

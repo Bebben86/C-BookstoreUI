@@ -92,6 +92,7 @@ namespace DatabaseFirstSampleTwo
             // 
             this.GridView_base.AllowUserToAddRows = false;
             this.GridView_base.AllowUserToDeleteRows = false;
+            this.GridView_base.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.GridView_base.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.GridView_base.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridView_base.Location = new System.Drawing.Point(154, 12);
@@ -112,6 +113,7 @@ namespace DatabaseFirstSampleTwo
             this.Controls.Add(this.btn_connectAuthorsAndBooks);
             this.Controls.Add(this.btn_manageAuthors);
             this.Controls.Add(this.btn_manageBooks);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "BaseForm";
             this.Text = "The Bookstores Lab3 Andreas&Linnéa";
             this.Load += new System.EventHandler(this.BaseForm_Load);

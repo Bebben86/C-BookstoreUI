@@ -9,7 +9,7 @@ namespace DatabaseFirstSampleTwo.Models
 {
     public partial class LAM_Lab2Context : DbContext
     {
-        private string connectionString;
+        public string connectionString;
         public LAM_Lab2Context() : base()
         {
             var configurationBuilder = new ConfigurationBuilder();
@@ -89,7 +89,8 @@ namespace DatabaseFirstSampleTwo.Models
 
             modelBuilder.Entity<AuthorsBook>(entity =>
             {
-                entity.HasNoKey();
+                //entity.HasNoKey();
+                entity.HasKey(e => new { e.AuthorsId, e.BooksIsbn13 });
 
                 entity.Property(e => e.AuthorsId).HasColumnName("AuthorsID");
 
@@ -299,7 +300,8 @@ namespace DatabaseFirstSampleTwo.Models
 
             modelBuilder.Entity<StockBalance>(entity =>
             {
-                entity.HasNoKey();
+                
+                entity.HasKey(e => new { e.BookStoresId, e.BooksIsbn13 });
 
                 entity.Property(e => e.BookStoresId).HasColumnName("BookStoresID");
 

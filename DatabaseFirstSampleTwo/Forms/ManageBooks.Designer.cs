@@ -54,6 +54,7 @@ namespace DatabaseFirstSampleTwo
             this.dataGridView_books.AllowUserToAddRows = false;
             this.dataGridView_books.AllowUserToDeleteRows = false;
             this.dataGridView_books.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_books.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_books.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_books.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_books.Location = new System.Drawing.Point(12, 12);
@@ -232,6 +233,10 @@ namespace DatabaseFirstSampleTwo
             this.Controls.Add(this.tb_title);
             this.Controls.Add(this.dataGridView_books);
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(816, 502);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(816, 502);
             this.Name = "ManageBooks";
             this.Text = "Manage books";
             this.Load += new System.EventHandler(this.Form1_Load);
