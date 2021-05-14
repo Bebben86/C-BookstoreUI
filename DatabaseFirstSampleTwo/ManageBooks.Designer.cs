@@ -69,28 +69,28 @@ namespace DatabaseFirstSampleTwo
             this.tb_title.Location = new System.Drawing.Point(91, 345);
             this.tb_title.Name = "tb_title";
             this.tb_title.Size = new System.Drawing.Size(144, 23);
-            this.tb_title.TabIndex = 2;
+            this.tb_title.TabIndex = 1;
             // 
             // tb_Price
             // 
             this.tb_Price.Location = new System.Drawing.Point(91, 403);
             this.tb_Price.Name = "tb_Price";
             this.tb_Price.Size = new System.Drawing.Size(144, 23);
-            this.tb_Price.TabIndex = 4;
+            this.tb_Price.TabIndex = 3;
             // 
             // tb_Language
             // 
             this.tb_Language.Location = new System.Drawing.Point(91, 374);
             this.tb_Language.Name = "tb_Language";
             this.tb_Language.Size = new System.Drawing.Size(144, 23);
-            this.tb_Language.TabIndex = 3;
+            this.tb_Language.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(335, 316);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePicker1.TabIndex = 5;
             // 
             // lbl_Title
             // 
@@ -136,8 +136,7 @@ namespace DatabaseFirstSampleTwo
             this.tb_ISBN.Name = "tb_ISBN";
             this.tb_ISBN.PlaceholderText = "Numbers only";
             this.tb_ISBN.Size = new System.Drawing.Size(144, 23);
-            this.tb_ISBN.TabIndex = 1;
-            this.tb_ISBN.TabStop = false;
+            this.tb_ISBN.TabIndex = 0;
             this.tb_ISBN.TextChanged += new System.EventHandler(this.tb_ISBN_TextChanged);
             // 
             // lbl_ISBN
@@ -165,7 +164,7 @@ namespace DatabaseFirstSampleTwo
             this.button_saveUpdateBook.Location = new System.Drawing.Point(374, 402);
             this.button_saveUpdateBook.Name = "button_saveUpdateBook";
             this.button_saveUpdateBook.Size = new System.Drawing.Size(95, 23);
-            this.button_saveUpdateBook.TabIndex = 8;
+            this.button_saveUpdateBook.TabIndex = 10;
             this.button_saveUpdateBook.Text = "Save update";
             this.button_saveUpdateBook.UseVisualStyleBackColor = true;
             this.button_saveUpdateBook.Click += new System.EventHandler(this.button_saveUpdateBook_Click);
@@ -176,7 +175,7 @@ namespace DatabaseFirstSampleTwo
             this.checkBox_activeBook.Location = new System.Drawing.Point(91, 432);
             this.checkBox_activeBook.Name = "checkBox_activeBook";
             this.checkBox_activeBook.Size = new System.Drawing.Size(59, 19);
-            this.checkBox_activeBook.TabIndex = 5;
+            this.checkBox_activeBook.TabIndex = 4;
             this.checkBox_activeBook.Text = "Active";
             this.checkBox_activeBook.UseVisualStyleBackColor = true;
             // 
@@ -185,7 +184,7 @@ namespace DatabaseFirstSampleTwo
             this.btn_Close.Location = new System.Drawing.Point(487, 403);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(95, 23);
-            this.btn_Close.TabIndex = 11;
+            this.btn_Close.TabIndex = 9;
             this.btn_Close.Text = "Close";
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
@@ -195,18 +194,17 @@ namespace DatabaseFirstSampleTwo
             this.btn_ChooseAuthor.Location = new System.Drawing.Point(254, 369);
             this.btn_ChooseAuthor.Name = "btn_ChooseAuthor";
             this.btn_ChooseAuthor.Size = new System.Drawing.Size(95, 23);
-            this.btn_ChooseAuthor.TabIndex = 12;
+            this.btn_ChooseAuthor.TabIndex = 6;
             this.btn_ChooseAuthor.Text = "Choose Author";
             this.btn_ChooseAuthor.UseVisualStyleBackColor = true;
             this.btn_ChooseAuthor.Click += new System.EventHandler(this.btn_ChooseAuthor_Click);
             // 
             // button_Clear
             // 
-            this.button_Clear.Enabled = true;
             this.button_Clear.Location = new System.Drawing.Point(374, 369);
             this.button_Clear.Name = "button_Clear";
             this.button_Clear.Size = new System.Drawing.Size(95, 23);
-            this.button_Clear.TabIndex = 13;
+            this.button_Clear.TabIndex = 8;
             this.button_Clear.Text = "Clear";
             this.button_Clear.UseVisualStyleBackColor = true;
             this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);

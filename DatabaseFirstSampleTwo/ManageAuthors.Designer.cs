@@ -49,7 +49,7 @@ namespace Lab3LinneaOchAndreas
             this.btn_Add.Location = new System.Drawing.Point(265, 387);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(88, 32);
-            this.btn_Add.TabIndex = 5;
+            this.btn_Add.TabIndex = 4;
             this.btn_Add.Text = "Add New";
             this.btn_Add.UseVisualStyleBackColor = true;
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
@@ -60,7 +60,7 @@ namespace Lab3LinneaOchAndreas
             this.btn_Save.Location = new System.Drawing.Point(372, 387);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(96, 32);
-            this.btn_Save.TabIndex = 6;
+            this.btn_Save.TabIndex = 5;
             this.btn_Save.Text = "Save Update";
             this.btn_Save.UseVisualStyleBackColor = true;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
@@ -80,14 +80,14 @@ namespace Lab3LinneaOchAndreas
             this.tb_Lastname.Location = new System.Drawing.Point(78, 365);
             this.tb_Lastname.Name = "tb_Lastname";
             this.tb_Lastname.Size = new System.Drawing.Size(168, 23);
-            this.tb_Lastname.TabIndex = 2;
+            this.tb_Lastname.TabIndex = 1;
             // 
             // tb_Firstname
             // 
             this.tb_Firstname.Location = new System.Drawing.Point(78, 336);
             this.tb_Firstname.Name = "tb_Firstname";
             this.tb_Firstname.Size = new System.Drawing.Size(168, 23);
-            this.tb_Firstname.TabIndex = 1;
+            this.tb_Firstname.TabIndex = 0;
             // 
             // checkbox_Active
             // 
@@ -95,7 +95,7 @@ namespace Lab3LinneaOchAndreas
             this.checkbox_Active.Location = new System.Drawing.Point(78, 426);
             this.checkbox_Active.Name = "checkbox_Active";
             this.checkbox_Active.Size = new System.Drawing.Size(59, 19);
-            this.checkbox_Active.TabIndex = 4;
+            this.checkbox_Active.TabIndex = 3;
             this.checkbox_Active.Text = "Active";
             this.checkbox_Active.UseVisualStyleBackColor = true;
             // 
@@ -145,14 +145,14 @@ namespace Lab3LinneaOchAndreas
             this.tb_Birthdate.Location = new System.Drawing.Point(78, 397);
             this.tb_Birthdate.Name = "tb_Birthdate";
             this.tb_Birthdate.Size = new System.Drawing.Size(168, 23);
-            this.tb_Birthdate.TabIndex = 3;
+            this.tb_Birthdate.TabIndex = 2;
             // 
             // button_clear
             // 
             this.button_clear.Location = new System.Drawing.Point(485, 387);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(88, 32);
-            this.button_clear.TabIndex = 13;
+            this.button_clear.TabIndex = 6;
             this.button_clear.Text = "Clear";
             this.button_clear.UseVisualStyleBackColor = true;
             this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
