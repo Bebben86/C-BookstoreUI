@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using DatabaseFirstSampleTwo.Models;
+using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DatabaseFirstSampleTwo.Models;
 
 namespace Lab3LinneaOchAndreas
 {
     public partial class ManageAuthors : Form
     {
+        // Declare variable authId to be used in dataGridView-search. 
         public int authId = 0;
         public ManageAuthors()
         {
@@ -26,6 +22,7 @@ namespace Lab3LinneaOchAndreas
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
+            //Updates chosen author with user's altered input.
             using (var db = new LAM_Lab2Context())
             {
                 try
@@ -39,7 +36,7 @@ namespace Lab3LinneaOchAndreas
 
                     if (string.IsNullOrEmpty(tb_Firstname.Text) || string.IsNullOrWhiteSpace(tb_Lastname.Text))
                     {
-                        MessageBox.Show("First- or lastname can't be empty.", "You made an oopsie!",
+                        MessageBox.Show("First- or lastname can't be empty.", "Missing information",
                                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
@@ -56,7 +53,7 @@ namespace Lab3LinneaOchAndreas
                 catch (Exception ee)
                 {
                     MessageBox.Show($"{ee}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
+                    
                 }
             }
         }
@@ -65,6 +62,7 @@ namespace Lab3LinneaOchAndreas
         {
             using (var db = new LAM_Lab2Context())
             {
+                //Adds a new author with user's input.
                 try
                 {
                     int searchID = authId;
@@ -90,7 +88,7 @@ namespace Lab3LinneaOchAndreas
 
                         if (string.IsNullOrWhiteSpace(tb_Firstname.Text) || string.IsNullOrWhiteSpace(tb_Lastname.Text))
                         {
-                            MessageBox.Show("First- or lastname can't be empty.", "You made an oopsie!",
+                            MessageBox.Show("First- or lastname can't be empty.", "Missing information",
                                                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
@@ -109,7 +107,6 @@ namespace Lab3LinneaOchAndreas
                 catch (Exception ee)
                 {
                     MessageBox.Show($"{ee}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw;
                 }
             }
 
@@ -117,30 +114,43 @@ namespace Lab3LinneaOchAndreas
 
         private void dataGridView_Authors_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            using (var db = new LAM_Lab2Context())
+            //Updates the textboxes and other controls with information from the dataGridView.
+            //And enables the Update-button if the user wants to update an author.
+            try
             {
-                string id = dataGridView_Authors.Rows[e.RowIndex].Cells[0].Value.ToString();
-                int idInt = int.Parse(id);
+                using (var db = new LAM_Lab2Context())
+                {
+                    string id = dataGridView_Authors.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    int idInt = int.Parse(id);
 
-                var author = db.Authors.Find(idInt);
+                    var author = db.Authors.Find(idInt);
 
-                authId = author.Id;
-                tb_Firstname.Text = author.AFirstName;
-                tb_Lastname.Text = author.ALastName;
-                tb_Birthdate.Value = author.BirthDate;
-                checkbox_Active.Checked = author.Active;
-                
+                    authId = author.Id;
+                    tb_Firstname.Text = author.AFirstName;
+                    tb_Lastname.Text = author.ALastName;
+                    tb_Birthdate.Value = author.BirthDate;
+                    checkbox_Active.Checked = author.Active;
 
-                this.btn_Save.Enabled = true;
-                
+
+                    this.btn_Save.Enabled = true;
+
+                }
             }
+            catch (Exception ee)
+            {
+                MessageBox.Show($"{ee}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void ManageAuthors_Load(object sender, EventArgs e)
         {
             using (var db = new LAM_Lab2Context())
             {
+                //Hides two columns from the dataGridView
                 dataGridView_Authors.DataSource = db.Authors.ToList();
+                this.dataGridView_Authors.Columns["AFirstName"].Visible = false;
+                this.dataGridView_Authors.Columns["ALastName"].Visible = false;
             }
         }
 

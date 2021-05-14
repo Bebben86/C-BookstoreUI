@@ -130,9 +130,12 @@ namespace Lab3LinneaOchAndreas
             // 
             this.dataGridView_Authors.AllowUserToAddRows = false;
             this.dataGridView_Authors.AllowUserToDeleteRows = false;
+            this.dataGridView_Authors.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_Authors.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_Authors.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_Authors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Authors.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView_Authors.MultiSelect = false;
             this.dataGridView_Authors.Name = "dataGridView_Authors";
             this.dataGridView_Authors.ReadOnly = true;
             this.dataGridView_Authors.RowTemplate.Height = 25;
@@ -174,6 +177,10 @@ namespace Lab3LinneaOchAndreas
             this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_Add);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(816, 494);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(816, 494);
             this.Name = "ManageAuthors";
             this.Text = "ManageAuthors";
             this.Load += new System.EventHandler(this.ManageAuthors_Load);

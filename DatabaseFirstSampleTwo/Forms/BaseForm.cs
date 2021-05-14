@@ -52,8 +52,8 @@ namespace DatabaseFirstSampleTwo
                     if (booksData.Count() > 0)
                     {
                         GridView_base.DataSource = booksData.ToList();
-                        GridView_base.Columns[0].HeaderText = "Firstname";
-                        GridView_base.Columns[1].HeaderText = "Lastname";
+                        GridView_base.Columns[0].HeaderText = "Author Firstname";
+                        GridView_base.Columns[1].HeaderText = "Author Lastname";
                         GridView_base.Columns[2].HeaderText = "Title of the book";
                     }
                     else

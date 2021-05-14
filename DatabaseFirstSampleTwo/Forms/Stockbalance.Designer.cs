@@ -38,6 +38,7 @@ namespace Lab3LinneaOchAndreas
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox_book = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_Update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_storeData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +46,8 @@ namespace Lab3LinneaOchAndreas
             // 
             this.dataGridView_storeData.AllowUserToAddRows = false;
             this.dataGridView_storeData.AllowUserToDeleteRows = false;
+            this.dataGridView_storeData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView_storeData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView_storeData.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_storeData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_storeData.Location = new System.Drawing.Point(13, 12);
@@ -53,36 +56,37 @@ namespace Lab3LinneaOchAndreas
             this.dataGridView_storeData.RowTemplate.Height = 25;
             this.dataGridView_storeData.Size = new System.Drawing.Size(775, 280);
             this.dataGridView_storeData.TabIndex = 0;
-            this.dataGridView_storeData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_storeData_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 374);
+            this.label1.Location = new System.Drawing.Point(13, 365);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 15);
+            this.label1.Size = new System.Drawing.Size(100, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Update number of items:";
+            this.label1.Text = "Number of items:";
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(274, 371);
+            this.btn_Save.Location = new System.Drawing.Point(388, 304);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(80, 23);
             this.btn_Save.TabIndex = 3;
-            this.btn_Save.Text = "Save";
+            this.btn_Save.Text = "Add new";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // tb_nrOfItems
             // 
-            this.tb_nrOfItems.Location = new System.Drawing.Point(154, 371);
+            this.tb_nrOfItems.Location = new System.Drawing.Point(134, 362);
             this.tb_nrOfItems.Name = "tb_nrOfItems";
             this.tb_nrOfItems.Size = new System.Drawing.Size(100, 23);
             this.tb_nrOfItems.TabIndex = 5;
+            this.tb_nrOfItems.TextChanged += new System.EventHandler(this.tb_nrOfItems_TextChanged);
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(274, 400);
+            this.btn_Close.Location = new System.Drawing.Point(388, 365);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(80, 23);
             this.btn_Close.TabIndex = 6;
@@ -114,7 +118,6 @@ namespace Lab3LinneaOchAndreas
             this.comboBox_book.Name = "comboBox_book";
             this.comboBox_book.Size = new System.Drawing.Size(220, 23);
             this.comboBox_book.TabIndex = 9;
-            this.comboBox_book.SelectedIndexChanged += new System.EventHandler(this.comboBox_book_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -125,11 +128,22 @@ namespace Lab3LinneaOchAndreas
             this.label4.TabIndex = 10;
             this.label4.Text = "Book:";
             // 
+            // btn_Update
+            // 
+            this.btn_Update.Location = new System.Drawing.Point(388, 336);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(80, 23);
+            this.btn_Update.TabIndex = 11;
+            this.btn_Update.Text = "Update";
+            this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click_1);
+            // 
             // Stockbalance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 438);
+            this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox_book);
             this.Controls.Add(this.label3);
@@ -139,6 +153,10 @@ namespace Lab3LinneaOchAndreas
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView_storeData);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(816, 477);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(816, 477);
             this.Name = "Stockbalance";
             this.Text = "Stockbalance";
             this.Load += new System.EventHandler(this.Stockbalance_Load);
@@ -159,5 +177,6 @@ namespace Lab3LinneaOchAndreas
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox_book;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_Update;
     }
 }
