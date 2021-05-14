@@ -73,7 +73,8 @@ namespace DatabaseFirstSampleTwo
                             Title = tb_title.Text,
                             Price = decimal.Parse(tb_Price.Text),
                             Published = dateTimePicker1.Value,
-                            Language = tb_Language.Text
+                            Language = tb_Language.Text,
+                            Active = checkBox_activeBook.Checked
                         };
 
                         db.Books.Add(book);
