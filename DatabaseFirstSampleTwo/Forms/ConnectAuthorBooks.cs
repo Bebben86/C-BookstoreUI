@@ -73,5 +73,42 @@ namespace Lab3LinneaOchAndreas
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (var db = new LAM_Lab2Context())
+            {
+                var result = MessageBox.Show("Are you sure?", "Confirm delete",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        //Removes authorID and booksIsbn from the database so they are no longer "connected".
+                        var item = cb_Authors.SelectedValue;
+                        var id = Convert.ToInt32(item);
+
+                        var conn = new AuthorsBook()
+                        {
+                            AuthorsId = id,
+                            BooksIsbn13 = cb_Books.SelectedValue.ToString()
+                        };
+
+                        db.AuthorsBooks.Remove(conn);
+                        db.SaveChanges();
+
+                        MessageBox.Show("Connecton deleted.", "Success",
+                           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Author not associated with that book.\n" +
+                            "No changes made.", "Attention",
+                           MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                }
+            }
+        }
     }
 }

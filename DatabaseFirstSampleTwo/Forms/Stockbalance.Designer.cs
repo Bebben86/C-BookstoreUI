@@ -39,6 +39,7 @@ namespace Lab3LinneaOchAndreas
             this.comboBox_book = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_Update = new System.Windows.Forms.Button();
+            this.btn_remove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_storeData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +87,7 @@ namespace Lab3LinneaOchAndreas
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(388, 365);
+            this.btn_Close.Location = new System.Drawing.Point(388, 403);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(80, 23);
             this.btn_Close.TabIndex = 6;
@@ -138,11 +139,22 @@ namespace Lab3LinneaOchAndreas
             this.btn_Update.UseVisualStyleBackColor = true;
             this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click_1);
             // 
+            // btn_remove
+            // 
+            this.btn_remove.Location = new System.Drawing.Point(388, 365);
+            this.btn_remove.Name = "btn_remove";
+            this.btn_remove.Size = new System.Drawing.Size(80, 23);
+            this.btn_remove.TabIndex = 12;
+            this.btn_remove.Text = "Remove";
+            this.btn_remove.UseVisualStyleBackColor = true;
+            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
+            // 
             // Stockbalance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 438);
+            this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox_book);
@@ -178,5 +190,6 @@ namespace Lab3LinneaOchAndreas
         private System.Windows.Forms.ComboBox comboBox_book;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.Button btn_remove;
     }
 }
