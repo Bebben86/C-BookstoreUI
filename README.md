@@ -27,7 +27,7 @@ För att radera data i Stock Balance och Connect Author and Books, fyll i önska
 Konfirmera i följande dialogruta.
 
 OBS!!!
-Istället för att ha en delete-funktion så anvädner vi oss av Active-bock.
+Istället för att ha en delete-funktion på vissa ställen så anvädner vi oss av en Active-bock.
 Avbockad författare eller bok = inaktiv/borttagen
 
 Allt enligt en överenskommelse med Claes. :)
