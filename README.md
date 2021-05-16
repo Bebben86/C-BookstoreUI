@@ -23,7 +23,8 @@ För en ny bok i en butik, välj Bookstore och Book, och fyll i antalet böcker 
 
 För att ändra lagersaldot, välj Bookstore och Book, fyll sedan i det saldo som affären ska ha. Klicka sedan på 'Update'.
 
-
+För att radera data i Stock Balance och Connect Author and Books, fyll i önskad data och klicka på Remove. 
+Konfirmera i följande dialogruta.
 
 OBS!!!
 Istället för att ha en delete-funktion så anvädner vi oss av Active-bock.
