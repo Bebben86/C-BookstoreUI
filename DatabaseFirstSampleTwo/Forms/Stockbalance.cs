@@ -147,5 +147,39 @@ namespace Lab3LinneaOchAndreas
                 dataGridView_storeData.DataSource = sqlResult();
             }
         }
+
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            //Remove a user-chosen book at a user-chosen bookstore.
+            using (var db = new LAM_Lab2Context())
+            {
+                var result = MessageBox.Show("Are you sure?", "Confirm delete",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        var item = comboBox_bookstore.SelectedValue;
+                        var id = Convert.ToInt32(item);
+
+                        var bookInStock = new StockBalance()
+                        {
+                            BookStoresId = id,
+                            BooksIsbn13 = comboBox_book.SelectedValue.ToString()
+                        };
+
+                        db.StockBalances.Remove(bookInStock);
+                        db.SaveChanges();
+
+                    }
+                    catch (Exception ee)
+                    {
+                        MessageBox.Show($"{ee}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    }
+                    dataGridView_storeData.DataSource = sqlResult();
+                }
+            }
+        }
     }
 }
