@@ -3,11 +3,7 @@ Lab3 in database. Adding a UI to books-database.
 
 Lab3 av Linnéa Netzell och Andreas Nilsson 2021
 
-URL till uppgiften: https://github.com/Bebben86/Lab3LinneaOchAndreas.git
-
-Bifogat i uppgiften på ITHS Distans finns ett SQL-script vid namn Lab2_sql_v13AndreasLinnea.sql.
-Den är för SQL v13.
-Kör scriptet i valfri databashanterare, men om annan databasserver än (localdb)\MSSQLLocalDB används så MÅSTE detta justeras
+Först, Kör SQL-scriptet Lab2_sql_v12AndreasLinnea.sql i valfri databashanterare, men om annan databasserver än (localdb)\MSSQLLocalDB används så MÅSTE detta justeras
 i connectionString i appsettings.json.
 
 För att lägga till ny bok; gör följande:
@@ -27,8 +23,8 @@ För att radera data i Stock Balance och Connect Author and Books, fyll i önska
 Konfirmera i följande dialogruta.
 
 OBS!!!
-Istället för att ha en delete-funktion på vissa ställen så anvädner vi oss av en Active-bock.
+Istället för att ha en delete-funktion på vissa ställen så använder vi oss av en Active-bock.
 Avbockad författare eller bok = inaktiv/borttagen
 
-Allt enligt en överenskommelse med Claes. :)
+Allt enligt en överenskommelse med läraren.
 OBS!!!
